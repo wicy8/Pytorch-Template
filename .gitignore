@@ -1,0 +1,20 @@
+# .gitignore
+
+# 忽略 Python 缓存
+__pycache__/
+*.py[cod]
+
+# 忽略环境变量和密钥 (绝对不能上传 API Key!)
+.env
+.vscode/
+.idea/
+
+# 忽略虚拟环境
+venv/
+env/
+.conda/
+
+# 忽略大模型权重文件 (几GB的文件传不上去的)
+*.gguf
+*.pt
+*.bin
