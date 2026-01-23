@@ -1,6 +1,7 @@
 import time
 import json
 import random
+import utils
 
 class MockLLM:
     """
@@ -39,10 +40,22 @@ class MockLLM:
             """
         
         # 模拟 LLM 经常会把代码包在 Markdown 块里，甚至带点废话
-        response_content = {
-            "thought": "根据物理学原理，保持杆子垂直是关键，所以我设计了一个基于角度惩罚的奖励函数。",
-            "code": mock_code
-        }
+        # response_content = {
+        #     "thought": "根据物理学原理，保持杆子垂直是关键，所以我设计了一个基于角度惩罚的奖励函数。",
+        #     "code": mock_code
+        # }
+
+        dirty_output = """
+            好的，这是为您生成的代码：
+            ```json
+            {
+                "thought": "Testing extraction",
+                "code": "print('hello')"
+            }
+            ```
+            希望这对您有帮助！
+            """
+        response_content = utils.parse_llm_output(dirty_output)
         
         # 返回 JSON 字符串
         return json.dumps(response_content, ensure_ascii=False)

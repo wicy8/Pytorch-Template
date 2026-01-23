@@ -7,7 +7,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 import matplotlib.pyplot as plt
 
-# ================= 1. 数据加载与预处理 (Pandas & Numpy 教学区) =================
+# ================= 1. 数据加载与预处理 =================
 print("Loading data...")
 
 # [Pandas]: 读取 CSV 文件
@@ -100,7 +100,7 @@ with torch.no_grad():  # 考试时不需要算梯度
 print(f"\n✅ 训练结束！")
 print(f"🎓 Student 模型在测试集上的准确率: {accuracy * 100:.2f}%")
 
-# 保存模型 (这也是你的资产！)
+# 保存模型
 torch.save(student_model.state_dict(), "student_model.pth")
 print("💾 模型已保存为 student_model.pth")
 
